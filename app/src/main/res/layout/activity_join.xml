@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <include
@@ -24,7 +26,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:hint="ID"
             android:inputType="text" />
     </LinearLayout>
 
@@ -43,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:hint="password"
+            android:hint="8자리 이상"
             android:inputType="textPassword" />
     </LinearLayout>
 
@@ -62,8 +63,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:hint="name"
-            android:inputType="text" />
+            android:inputType="text"
+            android:maxLength="10" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,7 +82,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:hint="height"
             android:inputType="number" />
     </LinearLayout>
 
@@ -100,13 +100,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:hint="weight"
             android:inputType="number" />
     </LinearLayout>
 
     <Button
         android:id="@+id/bt_join"
-        style="@style/default_button"
+        style="@style/button_default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

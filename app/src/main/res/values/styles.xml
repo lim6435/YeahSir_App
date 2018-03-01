@@ -17,27 +17,29 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="default_font" parent="@android:style/TextAppearance">
+    <style name="font_default" parent="@android:style/TextAppearance">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/text_color</item>
-    </style>
-
-    <style name="large_font" parent="default_font">
-        <item name="android:textSize">@dimen/large_font_size</item>
-    </style>
-
-    <style name="normal_font" parent="default_font">
+        <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textSize">@dimen/normal_font_size</item>
     </style>
 
-    <style name="small_font" parent="default_font">
+    <style name="font_large" parent="font_default">
+        <item name="android:textSize">@dimen/large_font_size</item>
+    </style>
+
+    <style name="font_small" parent="font_default">
         <item name="android:textSize">@dimen/small_font_size</item>
     </style>
 
-    <style name="default_button">
-        <item name="android:background">@drawable/custom_button</item>
-        <item name="android:textColor">@color/bt_text_color</item>
+    <style name="button_default">
+        <item name="android:background">@drawable/button_normal</item>
+        <item name="android:textColor">@color/buttonTextPrimary</item>
+    </style>
+
+    <style name="button_light">
+        <item name="android:background">@drawable/button_light</item>
+        <item name="android:textColor">@color/buttonTextPrimary</item>
     </style>
 
 </resources>

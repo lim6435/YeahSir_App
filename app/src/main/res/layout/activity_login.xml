@@ -34,7 +34,7 @@
 
         <Button
             android:id="@+id/bt_login"
-            style="@style/default_button"
+            style="@style/button_default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -42,7 +42,7 @@
 
         <Button
             android:id="@+id/bt_join"
-            style="@style/default_button"
+            style="@style/button_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
