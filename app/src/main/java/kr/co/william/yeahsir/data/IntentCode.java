@@ -6,6 +6,7 @@ package kr.co.william.yeahsir.data;
 
 public class IntentCode {
 
+    // test
     public static final String INTENT_KEY_MENU_TYPE = "menu_type";
     public static final String INTENT_VALUE_MENU_1 = "menu_1";
     public static final String INTENT_VALUE_MENU_2 = "menu_2";
