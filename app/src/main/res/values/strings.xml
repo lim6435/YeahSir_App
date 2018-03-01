@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Yeah~ Sir!</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_1">menu_1</string>
+    <string name="menu_2">menu_2</string>
+    <string name="menu_3">menu_3</string>
+    <string name="menu_4">menu_4</string>
+    <string name="menu_5">menu_5</string>
+    <string name="menu_6">menu_6</string>
+    <string name="menu_7">menu_7</string>
+    <string name="menu_8">menu_8</string>
+
+    <string name="app_exit">종료 하시겠습니까</string>
+
+</resources>
