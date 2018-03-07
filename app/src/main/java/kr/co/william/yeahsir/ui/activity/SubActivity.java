@@ -26,7 +26,7 @@ public class SubActivity extends BaseActivity {
             menuType = intent.getStringExtra(IntentCode.INTENT_KEY_MENU_TYPE);
         }
 
-        CommonUtil.callFragment(SubActivity.this, new TestFragment(), null, true, true);
+        CommonUtil.callFragment(SubActivity.this, new TestFragment(), null, true);
     }
 
     @Override

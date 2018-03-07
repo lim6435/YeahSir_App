@@ -93,20 +93,22 @@
             android:src="@drawable/ic_search_black_24dp" />
 
         <EditText
-            android:id="@+id/et_id"
+            android:id="@+id/et_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:focusable="false"
             android:hint="대회 검색"
             android:inputType="text" />
 
     </LinearLayout>
 
     <TextView
-        style="@style/font_large"
+        style="@style/font_large_1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
-        android:text="대회 참석 리스트" />
+        android:text="대회 참석 리스트"
+        android:textStyle="bold" />
 
 
     <android.support.v7.widget.RecyclerView

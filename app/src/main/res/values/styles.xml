@@ -21,15 +21,19 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/textPrimary</item>
-        <item name="android:textSize">@dimen/normal_font_size</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
     </style>
 
-    <style name="font_large" parent="font_default">
-        <item name="android:textSize">@dimen/large_font_size</item>
+    <style name="font_large_2" parent="font_default">
+        <item name="android:textSize">@dimen/font_size_large_2</item>
+    </style>
+
+    <style name="font_large_1" parent="font_default">
+        <item name="android:textSize">@dimen/font_size_large_1</item>
     </style>
 
     <style name="font_small" parent="font_default">
-        <item name="android:textSize">@dimen/small_font_size</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
     </style>
 
     <style name="button_default">
@@ -40,6 +44,24 @@
     <style name="button_light">
         <item name="android:background">@drawable/button_light</item>
         <item name="android:textColor">@color/buttonTextPrimary</item>
+    </style>
+
+    <style name="line_primary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="line_primary_light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorPrimaryLight2</item>
+    </style>
+
+    <style name="line_accent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
 </resources>

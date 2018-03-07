@@ -7,7 +7,8 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!-- Font -->
-    <dimen name="large_font_size">18sp</dimen>
-    <dimen name="normal_font_size">15sp</dimen>
-    <dimen name="small_font_size">13sp</dimen>
+    <dimen name="font_size_large_1">18sp</dimen>
+    <dimen name="font_size_large_2">21sp</dimen>
+    <dimen name="font_size_normal">15sp</dimen>
+    <dimen name="font_size_small">13sp</dimen>
 </resources>

@@ -1,5 +1,6 @@
 package kr.co.william.yeahsir.ui.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -55,11 +56,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 System.out.println("[sheotest] iv_toggle 클릭");
-                drawerToggle.toggle();
+//                drawerToggle.toggle();
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("알림").setMessage("메뉴 준비중 입니다.").setPositiveButton("확인", null);
+                AlertDialog dialog = alertDialogBuilder.create();
+                dialog.show();
             }
         });
 
-        CommonUtil.callFragment(MainActivity.this, new MainFragment(), null, true, true);
+        CommonUtil.callFragment(MainActivity.this, new MainFragment(), null, true);
 
 //        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     }

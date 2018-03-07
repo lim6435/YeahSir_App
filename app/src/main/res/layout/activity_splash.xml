@@ -5,6 +5,6 @@
     android:orientation="vertical">
 
     <TextView
-        style="@style/font_large"
+        style="@style/font_large_1"
         android:text="Intro 화면" />
 </LinearLayout>

@@ -18,7 +18,7 @@ public class CommonUtil {
 
     private final static String TAG = CommonUtil.class.getSimpleName();
 
-    public static void callFragment(final FragmentActivity fragmentAcitivity, final Fragment fragment, final Bundle bundle, final boolean setAnimation, final boolean isSelfStart) {
+    public static void callFragment(final FragmentActivity fragmentAcitivity, final Fragment fragment, final Bundle bundle, final boolean isSelfStart) {
 
         FragmentManager fragmentManager = fragmentAcitivity.getSupportFragmentManager();
 
@@ -29,10 +29,6 @@ public class CommonUtil {
 
             try {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                if (setAnimation) {
-                    // sheotest TODO
-//                    fragmentTransaction.setCustomAnimations(R.anim.poc_fragment_in, R.anim.poc_fragment_out, R.anim.poc_fragment_in, R.anim.poc_fragment_out);
-                }
 
                 if (isSelfStart) {
                     fragmentTransaction.add(R.id.container, fragment);
@@ -61,7 +57,7 @@ public class CommonUtil {
         }
     }
 
-    public static void addFragment(FragmentActivity fragmentActivity, Fragment fragment, Bundle bundle, boolean setAnimation) {
+    public static void addFragment(FragmentActivity fragmentActivity, Fragment fragment, Bundle bundle) {
         FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
 
         if (fragment != null) {
@@ -71,10 +67,6 @@ public class CommonUtil {
 
             try {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                if (setAnimation) {
-                    // sheotest TODO
-//                    fragmentTransaction.setCustomAnimations(R.anim.poc_fragment_in, R.anim.poc_fragment_out, R.anim.poc_fragment_in, R.anim.poc_fragment_out);
-                }
                 fragmentTransaction.add(R.id.container, fragment);
                 fragmentTransaction.addToBackStack(fragment.getClass().getName());
                 fragmentTransaction.commitAllowingStateLoss();

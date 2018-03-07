@@ -32,7 +32,7 @@ public class AttendListAdapter extends RecyclerView.Adapter<AttendListAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.tv_no.setText(String.valueOf(position + 1));
-        holder.tv_competition.setText(items.get(position));
+        holder.tv_attend.setText(items.get(position));
     }
 
     @Override
@@ -43,12 +43,12 @@ public class AttendListAdapter extends RecyclerView.Adapter<AttendListAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tv_no;
-        private TextView tv_competition;
+        private TextView tv_attend;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv_no = (TextView) itemView.findViewById(R.id.tv_no);
-            tv_competition = (TextView) itemView.findViewById(R.id.tv_competition);
+            tv_attend = (TextView) itemView.findViewById(R.id.tv_attend);
         }
     }
 
