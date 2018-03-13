@@ -3,6 +3,7 @@ package kr.co.william.yeahsir.ui.activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ import kr.co.william.yeahsir.R;
 import kr.co.william.yeahsir.data.NetworkInfo;
 import kr.co.william.yeahsir.network.HttpRequest;
 import kr.co.william.yeahsir.network.NetworkCallback;
+import kr.co.william.yeahsir.ui.PopupDialog;
+import kr.co.william.yeahsir.ui.ProgressDialog;
 import kr.co.william.yeahsir.utils.CommonUtil;
 
 /**
@@ -25,6 +28,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private EditText et_id;
     private EditText et_pw;
+
+    // test
+    Handler mHandler;
+    ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,6 +93,35 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             try {
                 loginInfo.put("id", et_id.getText().toString());
                 loginInfo.put("pwd", et_pw.getText().toString());
+
+                /* 테스트소스
+                JSONArray test = new JSONArray();
+                test.put("aaa");
+                test.put("bbb");
+                test.put("ccc");
+                loginInfo.put("test", test);
+
+                JSONObject a1 = new JSONObject();
+                a1.put("key1", "111");
+                a1.put("key2", "222");
+                a1.put("key3", "333");
+                a1.put("key4", "444");
+
+                JSONObject a2 = new JSONObject();
+                a2.put("key1", "111");
+                a2.put("key2", "222");
+                a2.put("key3", "333");
+                a2.put("key4", "444");
+
+                JSONArray j1 = new JSONArray();
+                j1.put(a1);
+                j1.put(a2);
+
+                loginInfo.put("test", test);
+                loginInfo.put("o1", a1);
+                loginInfo.put("o2", a2);
+                loginInfo.put("j1", j1); */
+
             } catch (JSONException e) {
                 e.printStackTrace();
                 loginInfo = null;
@@ -109,6 +145,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 moveMainMenu();
             } else {
                 System.out.println("[sheotest] 데이터 응답오류");
+                PopupDialog.show(getApplicationContext(), "데이터 응답오류");
             }
         }
 
@@ -121,16 +158,30 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private boolean parseData(String responseData) {
         try {
             JSONObject json = new JSONObject(responseData);
-            String mem_name = json.getString("mem_name");
-            String mem_id = json.getString("mem_id");
-            JSONArray list = json.getJSONArray("getCoptInfo");
+            String memName = json.getString("memName");
+            String memId = json.getString("memId");
+            String memBirth = json.getString("memBirth");
+            String memTall = json.getString("memTall");
+            String memWeight = json.getString("memWeight");
+            JSONArray getCoptInfo = json.getJSONArray("getCoptList");
 
-            for (int i = 0; i < list.length(); i++) {
-                String test = list.getString(i);
-                System.out.println("[sheotest] test: " + test);
+            System.out.println("[sheotest] memName: " + memName);
+            System.out.println("[sheotest] memId: " + memId);
+            System.out.println("[sheotest] memBirth: " + memBirth);
+            System.out.println("[sheotest] memTall: " + memTall);
+            System.out.println("[sheotest] memWeight: " + memWeight);
+            System.out.println("[sheotest] getCoptInfo len: " + getCoptInfo.length());
+
+            for (int i = 0; i < getCoptInfo.length(); i++) {
+                JSONObject object = getCoptInfo.getJSONObject(i);
+                String coptDt = object.getString("coptDt");
+                String coptAgeGrop = object.getString("coptAgeGrop");
+                String coptPrid = object.getString("coptPrid");
+
+                System.out.println("[sheotest] coptDt: " + coptDt);
+                System.out.println("[sheotest] coptAgeGrop: " + coptAgeGrop);
+                System.out.println("[sheotest] coptPrid: " + coptPrid);
             }
-            System.out.println("[sheotest] mem_name: " + mem_name);
-            System.out.println("[sheotest] mem_id: " + mem_id);
             return true;
 
         } catch (JSONException e) {

@@ -1,4 +1,4 @@
-package kr.co.william.yeahsir.ui;
+package kr.co.william.yeahsir.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

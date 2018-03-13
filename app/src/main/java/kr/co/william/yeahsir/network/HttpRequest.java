@@ -1,5 +1,6 @@
 package kr.co.william.yeahsir.network;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -14,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import kr.co.william.yeahsir.data.NetworkInfo;
+import kr.co.william.yeahsir.ui.ProgressDialog;
 
 /**
  * Created by sheo on 2018-02-28.
@@ -27,6 +29,7 @@ public class HttpRequest {
     private static HttpRequest httpRequest = null;
     private NetworkCallback callback;
     private int code;
+    private Activity activity;
 
     public static HttpRequest getInstance() {
         if (httpRequest == null) {
@@ -35,11 +38,12 @@ public class HttpRequest {
         return httpRequest;
     }
 
-    public void sendData(Context context, String url, JSONObject msg, int code, NetworkCallback callback) {
+    public void sendData(Activity activity, String url, JSONObject msg, int code, NetworkCallback callback) {
         System.out.println("[sheotest] url: " + url);
         System.out.println("[sheotest] msg: " + msg);
         System.out.println("[sheotest] code: " + code);
 
+        this.activity = activity;
         this.code = code;
         this.callback = callback;
         new SendAsyncTask().execute(url, msg);
@@ -57,7 +61,7 @@ public class HttpRequest {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            ProgressDialog.showProgress(activity);
         }
 
         @Override
@@ -69,6 +73,7 @@ public class HttpRequest {
         protected void onPostExecute(String responseData) {
             System.out.println("[sheotest] responseData: " + responseData);
 
+            ProgressDialog.stopProgress();
             if (checkError(responseData)) {
                 callback.onFailure(responseData, code);
             } else {

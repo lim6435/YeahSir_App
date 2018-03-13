@@ -4,7 +4,7 @@ package kr.co.william.yeahsir.data;
  * Created by sheo on 2018-03-01.
  */
 
-public class MemberInfo {
+public class MemberVo {
 
     private String id;
     private String password;
@@ -12,9 +12,12 @@ public class MemberInfo {
     private String height;
     private String weight;
 
+    private String loginType;
+    private String birthday;
+
     private String attendList; // sheotest TODO 참석리스트
 
-    public MemberInfo(String id, String password, String name, String height, String weight) {
+    public MemberVo(String id, String password, String name, String height, String weight) {
         this.id = id;
         this.password = password;
         this.name = name;
@@ -95,8 +98,8 @@ public class MemberInfo {
             return this;
         }
 
-        public MemberInfo build() {
-            return new MemberInfo(id, password, name, height, weight);
+        public MemberVo build() {
+            return new MemberVo(id, password, name, height, weight);
         }
     }
 }

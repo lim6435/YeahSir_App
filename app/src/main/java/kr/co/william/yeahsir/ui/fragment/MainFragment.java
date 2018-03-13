@@ -1,9 +1,6 @@
 package kr.co.william.yeahsir.ui.fragment;
 
 import android.content.Intent;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,24 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 import kr.co.william.yeahsir.R;
-import kr.co.william.yeahsir.data.NetworkInfo;
-import kr.co.william.yeahsir.network.HttpRequest;
-import kr.co.william.yeahsir.network.NetworkCallback;
-import kr.co.william.yeahsir.ui.AttendListAdapter;
+import kr.co.william.yeahsir.ui.adapter.AttendListAdapter;
 import kr.co.william.yeahsir.ui.activity.SearchActivity;
-import kr.co.william.yeahsir.utils.CommonUtil;
 
 /**
  * Created by sheo on 2018-02-11.
