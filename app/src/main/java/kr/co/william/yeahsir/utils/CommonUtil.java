@@ -1,11 +1,14 @@
 package kr.co.william.yeahsir.utils;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import kr.co.william.yeahsir.AppInfo;
 import kr.co.william.yeahsir.R;
@@ -102,5 +105,19 @@ public class CommonUtil {
         if (AppInfo.getInstance().isPrintLog()) {
             e.printStackTrace();
         }
+    }
+
+    public static int getImageWidth(Context context, int resId) {
+        ImageView iv_temp = new ImageView(context);
+        iv_temp.setImageResource(resId);
+        iv_temp.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        return iv_temp.getDrawable().getIntrinsicWidth();
+    }
+
+    public static int getImageHeight(Context context, int resId) {
+        ImageView iv_temp = new ImageView(context);
+        iv_temp.setImageResource(resId);
+        iv_temp.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        return iv_temp.getDrawable().getIntrinsicHeight();
     }
 }

@@ -52,11 +52,6 @@ public class HttpRequest {
 
             String sUrl = (String) params[0];
             JSONObject msg = (JSONObject) params[1];
-//            JSONObject test = (JSONObject) params[1];
-            System.out.println("[sheotest] url: " + sUrl);
-            System.out.println("[sheotest] msg: " + msg);
-            System.out.println("[sheotest] msg: " + msg.toString());
-
             return send(sUrl, msg).trim();
         }
 
@@ -82,14 +77,13 @@ public class HttpRequest {
         }
     }
 
-    // sheotest TODO 통신오류 체크
     private boolean checkError(String responseData) {
         if (NetworkInfo.NETWORK_FAIL_URLEXCEPTION.equals(responseData)
                 || NetworkInfo.NETWORK_FAIL_IOEXCEPTION.equals(responseData)
                 || NetworkInfo.NETWORK_FAIL_EXCEPTION.equals(responseData)
                 || NetworkInfo.NETWORK_FAIL_RESPONSE.equals(responseData)) {
             return true;
-        } else{
+        } else {
             return false;
         }
     }
@@ -98,49 +92,27 @@ public class HttpRequest {
 
         HttpURLConnection conn = null;
         OutputStream os = null;
-            String result = "";
+        String result = "";
 
-            try {
+        try {
 
-                URL url = new URL(sUrl);
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setConnectTimeout(TIMEOUT_SEC * 1000);
-                conn.setReadTimeout(TIMEOUT_SEC * 1000);
+            URL url = new URL(sUrl);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(TIMEOUT_SEC * 1000);
+            conn.setReadTimeout(TIMEOUT_SEC * 1000);
 //            conn.setConnectTimeout(10);
 //            conn.setReadTimeout(10);
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Cache-Control", "no-cache");
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setRequestProperty("Accept", "application/json");
-                conn.setDoOutput(true);
-                conn.setDoInput(true);
-
-            ////////////////////////////////////////////////////////
-
-//            JSONObject testInfo = new JSONObject();
-//            testInfo.put("phoneNum", "01032533179");
-//            testInfo.put("name", "허솔");
-//            testInfo.put("address", "삼성제일빌딩 10F");
-//            testInfo.put("test", "test");
-//            System.out.println("[sheotest] send data: " + testInfo.toString());
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Cache-Control", "no-cache");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
 
             os = conn.getOutputStream();
             os.write(msg.toString().getBytes("EUC-KR"));
             os.flush();
 
-            /////////////////////////////////////////////////////
-
-//            StringBuffer buffer = new StringBuffer();
-//            buffer.append(msg);
-//
-//            OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "EUC-KR");
-//            PrintWriter writer = new PrintWriter(outStream);
-//            writer.write(buffer.toString());
-//            writer.flush();
-
-            /////////////////////////////////////////////////
-
-            String response;
             int responseCode = conn.getResponseCode();
             System.out.println("[sheotest] responseCode: " + responseCode);
             if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -156,20 +128,16 @@ public class HttpRequest {
                 System.out.println("[sheotest] response: " + result);
 
             } else {
-                System.out.println("[sheotest] error !!!!!!!!!!!!!!!");
                 result = NetworkInfo.NETWORK_FAIL_RESPONSE;
             }
 
         } catch (MalformedURLException e) {
-            System.out.println("[sheotest] error MalformedURLException");
             e.printStackTrace();
             result = NetworkInfo.NETWORK_FAIL_URLEXCEPTION;
         } catch (IOException e) {
-            System.out.println("[sheotest] error IOException");
             e.printStackTrace();
             result = NetworkInfo.NETWORK_FAIL_IOEXCEPTION;
         } catch (Exception e) {
-            System.out.println("[sheotest] error Exception");
             e.printStackTrace();
             result = NetworkInfo.NETWORK_FAIL_EXCEPTION;
         } finally {

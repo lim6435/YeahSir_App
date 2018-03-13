@@ -1,6 +1,9 @@
 package kr.co.william.yeahsir.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +11,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,10 +23,12 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 import kr.co.william.yeahsir.R;
+import kr.co.william.yeahsir.data.NetworkInfo;
 import kr.co.william.yeahsir.network.HttpRequest;
 import kr.co.william.yeahsir.network.NetworkCallback;
 import kr.co.william.yeahsir.ui.AttendListAdapter;
 import kr.co.william.yeahsir.ui.activity.SearchActivity;
+import kr.co.william.yeahsir.utils.CommonUtil;
 
 /**
  * Created by sheo on 2018-02-11.
@@ -27,48 +36,9 @@ import kr.co.william.yeahsir.ui.activity.SearchActivity;
 
 public class MainFragment extends BaseFragment implements View.OnClickListener {
 
-    private final String URL = "http://ec2-13-125-105-147.ap-northeast-2.compute.amazonaws.com:8080/test";
-//    private final String URL = "http://mw.vpay.co.kr/event/createApp.jsp";
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // 테스트중
-        JSONObject testInfo = new JSONObject();
-        try {
-            testInfo.put("phoneNum", "01032533179");
-            testInfo.put("name", "허솔");
-            testInfo.put("address", "삼성제일빌딩 10F");
-            testInfo.put("test", "test");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("[sheotest] send data: " + testInfo.toString());
-        HttpRequest.getInstance().sendData(getActivity(), URL, testInfo, 0, new NetworkCallback() {
-            @Override
-            public void onResponse(String responseData, int code) {
-                System.out.println("[sheotest] 성공 responseData: " + responseData);
-
-                try {
-                    JSONObject json = new JSONObject(responseData);
-                    String mem_name = json.getString("mem_name");
-                    String mem_id = json.getString("mem_id");
-
-                    System.out.println("[sheotest] mem_name: " + mem_name);
-                    System.out.println("[sheotest] mem_id: " + mem_id);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    System.out.println("[sheotest] json 파싱오류");
-                }
-            }
-
-            @Override
-            public void onFailure(String msg, int code) {
-                System.out.println("[sheotest] 실패 msg: " + msg);
-            }
-        });
     }
 
     @Nullable
@@ -96,6 +66,11 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 //        rv_attend_list.addItemDecoration(itemDecoration);
 
         view.findViewById(R.id.et_search).setOnClickListener(this);
+
+//        ImageView imageView = (ImageView) view.findViewById(R.id.iv_photo);
+//        Glide.with(this).load("http://m.bccard.com/img/mobilecard/1119705/50_default.png")
+//                .override(CommonUtil.getImageWidth(getActivity(), R.drawable.ic_account_circle_black), CommonUtil.getImageHeight(getActivity(), R.drawable.ic_account_circle_black))
+//                .into(imageView);
 
         return view;
     }
