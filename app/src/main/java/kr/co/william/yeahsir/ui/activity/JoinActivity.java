@@ -1,11 +1,15 @@
 package kr.co.william.yeahsir.ui.activity;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.EditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.net.URLEncoder;
 
 import kr.co.william.yeahsir.R;
 import kr.co.william.yeahsir.data.NetworkInfo;
@@ -20,6 +24,22 @@ import kr.co.william.yeahsir.utils.CommonUtil;
 
 public class JoinActivity extends BaseActivity implements View.OnClickListener {
 
+    //Variable
+    //EditText
+    // member Id
+    private EditText et_id;
+    // memver password
+    private EditText et_pw;
+    // member name
+    private EditText et_name;
+    // member birthday
+    private EditText et_birth;
+    // member tall
+    private EditText et_height;
+    // member weight
+    private EditText et_weight;
+
+    //Override function
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +47,14 @@ public class JoinActivity extends BaseActivity implements View.OnClickListener {
 
         findViewById(R.id.iv_toggle).setVisibility(View.GONE);
         findViewById(R.id.bt_join).setOnClickListener(this);
+
+        //EditText Init
+        et_id = (EditText)findViewById(R.id.et_id);             // id
+        et_pw = (EditText)findViewById(R.id.et_pw);             // password
+        et_name = (EditText)findViewById(R.id.et_name);         // name
+        et_birth = (EditText)findViewById(R.id.et_birth);       // birthday
+        et_height = (EditText)findViewById(R.id.et_height);     // tall
+        et_weight = (EditText)findViewById(R.id.et_weight);     // weight
     }
 
     @Override
@@ -49,36 +77,43 @@ public class JoinActivity extends BaseActivity implements View.OnClickListener {
         switch (v.getId()) {
 
             case R.id.bt_join:
-                reqJoin();
+                if (getJoinInfo() == null) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(JoinActivity.this);
+                    alertDialogBuilder.setTitle("알림").setMessage("가입 정보를 정확히 입력해 주세요.").setPositiveButton("확인", null);
+                    AlertDialog dialog = alertDialogBuilder.create();
+                    dialog.show();
+                } else {
+                    reqJoin();
+                }
                 break;
         }
     }
 
     private void reqJoin() {
-        HttpRequest.getInstance().sendData(this, NetworkInfo.URL_JOIN, getLoginInfo(), 0, callback);
+        HttpRequest.getInstance().sendData(this, NetworkInfo.URL_JOIN, getJoinInfo(), 0, callback);
     }
 
-    private JSONObject getLoginInfo() {
+    private JSONObject getJoinInfo() {
 
         JSONObject joinInfo = new JSONObject();
-//        if (!CommonUtil.isEmpty(et_id.getText().toString()) && !CommonUtil.isEmpty(et_pw.getText().toString())) {
+        if (!CommonUtil.isEmpty(et_id.getText().toString()) && !CommonUtil.isEmpty(et_pw.getText().toString())) {
             try {
-                joinInfo.put("id", "sheo");
-                joinInfo.put("pwd", "1234");
-                joinInfo.put("memName", "허솔");
+                joinInfo.put("id", et_id.getText().toString());
+                joinInfo.put("pwd", et_pw.getText().toString());
+                joinInfo.put("memName", URLEncoder.encode(et_name.getText().toString()));
                 joinInfo.put("lgnTpcd", "0");
-                joinInfo.put("memBirth", "19861011");
-                joinInfo.put("memTall", "170");
-                joinInfo.put("memWeight", "100");
+                joinInfo.put("memBirth", et_birth.getText().toString());
+                joinInfo.put("memTall", et_height.getText().toString());
+                joinInfo.put("memWeight", et_weight.getText().toString());
 
             } catch (JSONException e) {
                 e.printStackTrace();
                 joinInfo = null;
             }
-//        } else {
-//            loginInfo = null;
-//        }
-        System.out.println("[sheotest] getLoginInfo : " + joinInfo);
+        } else {
+            joinInfo = null;
+        }
+        System.out.println("[sheotest] getJoinInfo : " + joinInfo);
         return joinInfo;
     }
 
