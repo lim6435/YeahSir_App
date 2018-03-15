@@ -17,4 +17,6 @@ public class IntentCode {
     public static final String INTENT_VALUE_MENU_7 = "menu_7";
     public static final String INTENT_VALUE_MENU_8 = "menu_8";
 
+
+
 }

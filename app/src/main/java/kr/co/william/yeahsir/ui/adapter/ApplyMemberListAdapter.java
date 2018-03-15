@@ -10,32 +10,32 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import kr.co.william.yeahsir.R;
-import kr.co.william.yeahsir.data.CompetitionVo;
+import kr.co.william.yeahsir.data.MemberVo;
 
 /**
  * Created by sheo on 2018-03-13.
  */
 
-public class ApplyListAdapter extends RecyclerView.Adapter<ApplyListAdapter.ViewHolder> {
+public class ApplyMemberListAdapter extends RecyclerView.Adapter<ApplyMemberListAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<CompetitionVo> items;
+    private ArrayList<MemberVo> items;
 
-    public ApplyListAdapter(Context context, ArrayList<CompetitionVo> items) {
+    public ApplyMemberListAdapter(Context context, ArrayList<MemberVo> items) {
         this.context = context;
         this.items = items;
     }
 
     @Override
-    public ApplyListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ApplyMemberListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_apply_list_view, parent, false);
-        return new ApplyListAdapter.ViewHolder(view);
+        return new ApplyMemberListAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ApplyListAdapter.ViewHolder holder, int position) {
-        holder.tv_competition.setText(items.get(position).getName());
+    public void onBindViewHolder(ApplyMemberListAdapter.ViewHolder holder, int position) {
+//        holder.tv_competition.setText(items.get(position).getName());
     }
 
     @Override

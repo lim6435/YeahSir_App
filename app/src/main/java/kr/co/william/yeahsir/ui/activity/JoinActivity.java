@@ -1,6 +1,7 @@
 package kr.co.william.yeahsir.ui.activity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -121,12 +122,12 @@ public class JoinActivity extends BaseActivity implements View.OnClickListener {
         @Override
         public void onResponse(String responseData, int code) {
             System.out.println("[sheotest] 성공 responseData: " + responseData);
-//            if (parseData(responseData)) {
-//                moveMainMenu();
-//            } else {
-//                System.out.println("[sheotest] 데이터 응답오류");
-//                PopupDialog.show(getApplicationContext(), "데이터 응답오류");
-//            }
+            if ("success".equals(responseData)) {
+                finish();
+            } else {
+                System.out.println("[sheotest] 데이터 응답오류");
+                PopupDialog.show(getApplicationContext(), "데이터 응답오류");
+            }
         }
 
         @Override

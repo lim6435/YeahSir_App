@@ -50,172 +50,179 @@
 
     </LinearLayout>
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/ll_botton"
         android:layout_below="@id/toolbar"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="장소" />
 
-                <TextView
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="장소" />
-
-                <TextView
-                    android:id="@+id/tv_where"
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="수원 월드컵경기장" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <TextView
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="시간" />
-
-                <TextView
-                    android:id="@+id/tv_time"
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="10:00" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <TextView
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="경기방식" />
-
-                <TextView
-                    android:id="@+id/tv_type"
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="7:7" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <TextView
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="대표자연락처" />
-
-                <TextView
-                    android:id="@+id/tv_hpNum"
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="대표자연락처" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <TextView
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="대회규정" />
-
-                <TextView
-                    android:id="@+id/tv_rule"
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="대회규정" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/font_default"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="팀명" />
-
-                <EditText
-                    android:id="@+id/et_teamName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="이름" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="ID" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="생년월일" />
-
-
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_attend_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                app:layoutManager="LinearLayoutManager"></android.support.v7.widget.RecyclerView>
+            <TextView
+                android:id="@+id/tv_where"
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="수원 월드컵경기장" />
 
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="시간" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="10:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="경기방식" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="7:7" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="대표자연락처" />
+
+            <TextView
+                android:id="@+id/tv_hpNum"
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="대표자연락처" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="대회규정" />
+
+            <TextView
+                android:id="@+id/tv_rule"
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="대회규정" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                style="@style/font_default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="팀명" />
+
+            <EditText
+                android:id="@+id/et_teamName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="팀명을 입력하세요" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/backgroundPrimary"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="ID" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="이름" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="생년월일" />
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_member_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            app:layoutManager="LinearLayoutManager"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
 
 </RelativeLayout>

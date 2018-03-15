@@ -65,7 +65,7 @@ public class CompetitionListAdapter extends RecyclerView.Adapter<CompetitionList
 
     private void moveApplyMenu(CompetitionVo info) {
         Intent intent = new Intent(context, ApplyActivity.class);
-        intent.putExtra("competi_info", info);
+        intent.putExtra("competition_info", info);
         context.startActivity(intent);
     }
 }

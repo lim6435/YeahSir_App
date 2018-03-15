@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
+    <CheckBox
+        android:id="@+id/cb_id"
+        style="@style/font_default"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/tv_attend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/tv_aa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/tv_bb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center" />
 </LinearLayout>
