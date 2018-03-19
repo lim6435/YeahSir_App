@@ -6,7 +6,7 @@
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/tv_attend"
+        android:id="@+id/et_id"
         style="@style/font_large_1"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"

@@ -51,7 +51,7 @@ public class CompetitionListAdapter extends RecyclerView.Adapter<CompetitionList
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tv_competition = (TextView) itemView.findViewById(R.id.tv_attend);
+            tv_competition = (TextView) itemView.findViewById(R.id.et_id);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

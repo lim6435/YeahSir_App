@@ -14,7 +14,7 @@
         android:text=". " />
 
     <TextView
-        android:id="@+id/tv_attend"
+        android:id="@+id/et_id"
         style="@style/font_default"
         android:text="참석리스트" />
 </LinearLayout>

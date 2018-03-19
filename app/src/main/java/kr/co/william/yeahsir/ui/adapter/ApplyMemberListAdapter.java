@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,8 +35,21 @@ public class ApplyMemberListAdapter extends RecyclerView.Adapter<ApplyMemberList
     }
 
     @Override
-    public void onBindViewHolder(ApplyMemberListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ApplyMemberListAdapter.ViewHolder holder, final int position) {
 //        holder.tv_competition.setText(items.get(position).getName());
+
+        holder.cb_id.setChecked(false);
+        holder.cb_id.setTag(items.get(position));
+
+        holder.cb_id.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                CheckBox cb = (CheckBox) v;
+                MemberVo memberVo = (MemberVo) cb.getTag();
+//                memberVo.setSelected(cb.isChecked());
+//                items.get(position).setSelected(cb.isChecked());
+
+            }
+        });
     }
 
     @Override
@@ -45,11 +59,11 @@ public class ApplyMemberListAdapter extends RecyclerView.Adapter<ApplyMemberList
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tv_competition;
+        private CheckBox cb_id;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tv_competition = (TextView) itemView.findViewById(R.id.tv_attend);
+            cb_id = (CheckBox) itemView.findViewById(R.id.cb_id);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -59,4 +73,5 @@ public class ApplyMemberListAdapter extends RecyclerView.Adapter<ApplyMemberList
             });
         }
     }
+
 }

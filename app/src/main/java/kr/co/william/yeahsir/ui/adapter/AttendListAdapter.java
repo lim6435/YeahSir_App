@@ -48,7 +48,7 @@ public class AttendListAdapter extends RecyclerView.Adapter<AttendListAdapter.Vi
         public ViewHolder(View itemView) {
             super(itemView);
             tv_no = (TextView) itemView.findViewById(R.id.tv_no);
-            tv_attend = (TextView) itemView.findViewById(R.id.tv_attend);
+            tv_attend = (TextView) itemView.findViewById(R.id.et_id);
         }
     }
 
